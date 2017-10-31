@@ -1,0 +1,110 @@
+'.source.js.jsx':
+  # `plain`
+  'Class component':
+    'prefix': 'plain'
+    'body': """
+      import PropTypes from 'prop-types';
+      import React from 'react';
+
+      export class ${1:MyComponent} extends React.Component {
+        static displayName = '${1}';
+        static propTypes = {};
+        render() {
+          return (<div>${1}</div>);
+        }
+      }
+
+      export default ${1};
+    """
+  # `pure`
+  'Pure class component':
+    'prefix': 'pure'
+    'body': """
+      import PropTypes from 'prop-types';
+      import React from 'react';
+
+      export class ${1:MyComponent} extends React.PureComponent {
+        static displayName = '${1}';
+        static propTypes = {};
+        render() {
+          return (<div>${1}</div>);
+        }
+      }
+
+      export default ${1};
+    """
+  # with `mapStateToProps` connected component
+  'Class component (with store)':
+    'prefix': 'withStore'
+    'body': """
+      import PropTypes from 'prop-types';
+      import React from 'react';
+      import { connect } from 'react-redux';
+
+      export class ${1:MyComponent} extends React.Component {
+        static displayName = '${1}';
+        static propTypes = {
+
+        };
+        render() {
+          return (<div>${1}</div>);
+        }
+      }
+
+      const mapStateToProps = (state) => ({});
+      export default connect(mapStateToProps)(${1});
+    """
+  # with `mapDispatchToProps` connected component
+  'Class component (with dispatch)':
+    'prefix': 'withDispatch'
+    'body': """
+      import PropTypes from 'prop-types';
+      import React from 'react';
+
+      export class ${1:MyComponent} extends React.Component {
+        static displayName = '${1}'
+        static propTypes = {};
+        render() {
+          return (<div>${1}</div>);
+        }
+      }
+
+      const mapStateToProps = (state) => ({});
+      const mapDispatchToProps = {};
+      export default connect(mapStateToProps, mapDispatchToProps)(${1});
+    """
+  # with `injectIntl`
+  'Class component (with intl)':
+    'prefix': 'withIntl'
+    'body': """
+      import PropTypes from 'prop-types';
+      import React from 'react';
+      import { intlShape, injectIntl } from 'react-intl'
+
+      export class ${1:MyComponent} extends React.PureComponent {
+        static displayName = '${1}';
+        static propTypes = {
+          // HoC
+          intl: intlShape.propTypes,
+        };
+        render() {
+          return (<div>${1}</div>);
+        }
+      }
+      export default injectIntl(${1})
+    """
+  'Stateless component':
+    'prefix': 'stateless'
+    'body': """
+      import PropTypes from 'prop-types';
+      import React from 'react';
+
+      export const ${1:MyComponent} = () => (
+        <div>${1}</div>
+      );
+
+      ${1}.propTypes = {};
+      ${1}.displayName = '${1}';
+
+      export default ${1};
+    """

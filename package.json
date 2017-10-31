@@ -1,0 +1,14 @@
+{
+  "name": "ama-react-snippets",
+  "version": "0.0.1",
+  "description": "snippets for react-js",
+  "keywords": [],
+  "activationCommands": {
+    "atom-workspace": "ama-react-snippets:toggle"
+  },
+  "repository": "https://github.com/atom/ama-react-snippets",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}
