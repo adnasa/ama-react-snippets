@@ -108,3 +108,40 @@
 
       export default ${1};
     """
+  'HOC':
+    'prefix': 'hawke'
+    'body': """
+      import PropTypes from 'prop-types';
+      import React from 'react';
+
+      export default function (options = {}) {
+        return Component => class extends React.Component {
+          render () {
+            return (
+              <Component />
+            )
+          }
+        }
+      }
+    """
+  'Number propType':
+    'prefix': 'numProp'
+    'body': 'PropTypes.number${1:.isRequired}'
+  'Array propType':
+    'prefix': 'arrProp'
+    'body': 'PropTypes.array${1:.isRequired}'
+  'Object propType':
+    'prefix': 'objProp'
+    'body': 'PropTypes.object${1:.isRequired}'
+  'String propType':
+    'prefix': 'strProp'
+    'body': 'PropTypes.string${1:.isRequired}'
+  'Function propType':
+    'prefix': 'funcProp'
+    'body': 'PropTypes.func${1:.isRequired}'
+  'oneOf propType':
+    'prefix': 'oneOfProp'
+    'body': 'PropTypes.oneOf([${1}])${2}'
+  'oneOfType propType':
+    'prefix': 'oneOfTypeProp'
+    'body': 'PropTypes.oneOfType([${1}])${2}'
